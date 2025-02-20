@@ -13,13 +13,6 @@ function makeButtonPressable() {
     }
 }
 
-function addToDo() {
-    if (nameLine.value == "" || contLine.value == "") {
-        return;
-    }
-    let content = nameLine.value + " : " + contLine.value;
-}
-
 function createToDo(id, name, cont) {
     let todo = `<div class="option" id="opt` + id + `">
                     <p>` + name + ` : ` + cont + `<img src="assets/trash.png" class="del" id="img` + id + `"></p>
