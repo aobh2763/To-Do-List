@@ -27,14 +27,15 @@ function addToDo() {
     }
     let todo = createToDo(todoCount, nameLine.value, contLine.value);
 
-    todoList.innerHTML += todo;
+    todoList.insertAdjacentHTML("beforeend", todo);
 
-    var imgs = document.getElementsByClassName("del");
-    for (var i = 0; i < imgs.length; i++) {
-        imgs[i].addEventListener("click", (e) => {
-            document.getElementById(e.target.id).parentNode.parentNode.remove();
-        });
-    }
+    let img = document.getElementById("img" + todoCount);
+    img.addEventListener("click", ((currentId => {
+        return function() {
+            var todo = document.getElementById("opt" + currentId);
+            todo.remove();
+        };
+    })(todoCount)));
 
     todoCount++;
 
